@@ -19,5 +19,10 @@
     <string name="a_propos_title">A propos</string>
     <string name="a_propos_content">Cette application a pour but de s\'amuser en peu sur League of Legends. En cliquant sur le bouton commencer, vous pouvez entrez 10 joueurs, et l\'application vous choisit aléatoirement un rôle et un personnage aléatoirement.
     </string>
+    <string name="top">Top</string>
+    <string name="jungle">Jungle</string>
+    <string name="mid">Mid</string>
+    <string name="adc">Adc</string>
+    <string name="support">Support</string>
 
 </resources>
