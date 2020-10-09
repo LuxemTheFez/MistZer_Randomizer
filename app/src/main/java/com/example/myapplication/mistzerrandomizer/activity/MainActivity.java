@@ -1,8 +1,10 @@
-package com.example.myapplication.mistzerrandomizer;
+package com.example.myapplication.mistzerrandomizer.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.myapplication.mistzerrandomizer.R;
 
 public class MainActivity extends AppCompatActivity {
 
