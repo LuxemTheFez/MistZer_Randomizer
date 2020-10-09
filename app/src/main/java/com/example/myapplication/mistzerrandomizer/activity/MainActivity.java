@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 System.out.println("hehehehe");
 
-                Intent activity_names_Intent = new Intent(getApplicationContext(), activity_names.class);
-                startActivity(activity_names_Intent);
+                Intent Activity_names_Intent = new Intent(getApplicationContext(), Activity_names.class);
+                startActivity(Activity_names_Intent);
             }
         });
     }

@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
 
-public class activity_names extends AppCompatActivity {
+public class Activity_names extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
