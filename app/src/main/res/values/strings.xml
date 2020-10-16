@@ -24,5 +24,7 @@
     <string name="mid">Mid</string>
     <string name="adc">Adc</string>
     <string name="support">Support</string>
+    <string name="restart">Recommencer</string>
+    <string name="menu">Menu</string>
 
 </resources>
