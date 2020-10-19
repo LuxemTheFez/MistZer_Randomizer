@@ -1,6 +1,7 @@
 package com.example.myapplication.mistzerrandomizer.activity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -36,5 +37,6 @@ public class Activity_result extends AppCompatActivity {
         ((TextView) findViewById(R.id.textView_sum8)).setText(summoner_list.get(7));
         ((TextView) findViewById(R.id.textView_sum9)).setText(summoner_list.get(8));
         ((TextView) findViewById(R.id.textView_sum10)).setText(summoner_list.get(9));
+
     }
 }
