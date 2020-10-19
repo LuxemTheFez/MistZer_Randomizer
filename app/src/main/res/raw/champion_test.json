@@ -1,0 +1,151 @@
+{
+  "data": {
+    "Aatrox": {
+      "id": "Aatrox",
+      "key": "266",
+      "name": "Aatrox",
+      "full": "Aatrox.png",
+      "estChoisi": true
+    },
+    "Ahri": {
+      "id": "Ahri",
+      "key": "103",
+      "name": "Ahri",
+      "full": "Ahri.png",
+      "estChoisi": true
+    },
+    "Akali": {
+      "id": "Akali",
+      "key": "84",
+      "name": "Akali",
+      "full": "Akali.png",
+      "estChoisi": true
+    },
+    "Alistar": {
+      "id": "Alistar",
+      "key": "12",
+      "name": "Alistar",
+      "full": "Alistar.png",
+      "estChoisi": true
+    },
+    "Amumu": {
+      "id": "Amumu",
+      "key": "32",
+      "name": "Amumu",
+      "full": "Amumu.png",
+      "estChoisi": true
+    },
+    "Anivia": {
+      "id": "Anivia",
+      "key": "34",
+      "name": "Anivia",
+      "full": "Anivia.png",
+      "estChoisi": true
+    },
+    "Annie": {
+      "id": "Annie",
+      "key": "1",
+      "name": "Annie",
+      "full": "Annie.png",
+      "estChoisi": true
+    },
+    "Aphelios": {
+      "id": "Aphelios",
+      "key": "523",
+      "name": "Aphelios",
+      "full": "Aphelios.png",
+      "estChoisi": true
+    },
+    "Ashe": {
+      "id": "Ashe",
+      "key": "22",
+      "name": "Ashe",
+      "full": "Ashe.png",
+      "estChoisi": true
+    },
+    "AurelionSol": {
+      "id": "AurelionSol",
+      "key": "136",
+      "name": "Aurelion Sol",
+      "full": "AurelionSol.png",
+      "estChoisi": true
+    },
+    "Azir": {
+      "id": "Azir",
+      "key": "268",
+      "name": "Azir",
+      "full": "Azir.png",
+      "estChoisi": true
+    },
+    "Bard": {
+      "id": "Bard",
+      "key": "432",
+      "name": "Bard",
+      "full": "Bard.png",
+      "estChoisi": true
+    },
+    "Blitzcrank": {
+      "id": "Blitzcrank",
+      "key": "53",
+      "name": "Blitzcrank",
+      "full": "Blitzcrank.png",
+      "estChoisi": true
+    },
+    "Brand": {
+      "id": "Brand",
+      "key": "63",
+      "name": "Brand",
+      "full": "Brand.png",
+      "estChoisi": true
+    },
+    "Braum": {
+      "id": "Braum",
+      "key": "201",
+      "name": "Braum",
+      "full": "Braum.png",
+      "estChoisi": true
+    },
+    "Caitlyn": {
+      "id": "Caitlyn",
+      "key": "51",
+      "name": "Caitlyn",
+      "full": "Caitlyn.png",
+      "estChoisi": true
+    },
+    "Camille": {
+      "id": "Camille",
+      "key": "164",
+      "name": "Camille",
+      "full": "Camille.png",
+      "estChoisi": true
+    },
+    "Cassiopeia": {
+      "id": "Cassiopeia",
+      "key": "69",
+      "name": "Cassiopeia",
+      "full": "Cassiopeia.png",
+      "estChoisi": true
+    },
+    "Chogath": {
+      "id": "Chogath",
+      "key": "31",
+      "name": "Cho'Gath",
+      "full": "Chogath.png",
+      "estChoisi": true
+    },
+    "Corki": {
+      "id": "Corki",
+      "key": "42",
+      "name": "Corki",
+      "full": "Corki.png",
+      "estChoisi": true
+    },
+    "Darius": {
+      "id": "Darius",
+      "key": "122",
+      "name": "Darius",
+      "full": "Darius.png",
+      "estChoisi": true
+    }
+  }
+}
