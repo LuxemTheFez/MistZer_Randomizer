@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -21,7 +21,6 @@
                 android:id="@+id/textView_sum1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center_horizontal"
                 android:text="@string/names_1" />
@@ -30,8 +29,9 @@
                 android:id="@+id/img_sum_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                android:layout_weight="0.6"
+                android:adjustViewBounds="false"
+                app:srcCompat="@drawable/aatrox" />
 
         </LinearLayout>
 
@@ -70,7 +70,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -91,7 +91,7 @@
                 android:id="@+id/img_sum_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
 
         <TextView
@@ -120,14 +120,14 @@
                 android:id="@+id/img_sum_7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -148,7 +148,7 @@
                 android:id="@+id/img_sum_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
 
         <TextView
@@ -177,14 +177,14 @@
                 android:id="@+id/img_sum_8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -205,7 +205,7 @@
                 android:id="@+id/img_sum_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
 
         <TextView
@@ -234,14 +234,14 @@
                 android:id="@+id/img_sum_9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -262,7 +262,7 @@
                 android:id="@+id/img_sum_5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
 
         <TextView
@@ -291,14 +291,14 @@
                 android:id="@+id/img_sum_10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/splash_art_champ_round" />
+                app:srcCompat="@drawable/aatrox" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.25"
         android:orientation="horizontal">
 
         <Button
