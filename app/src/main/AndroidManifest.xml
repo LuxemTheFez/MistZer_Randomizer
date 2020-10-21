@@ -13,7 +13,7 @@
         <activity android:name=".activity.Activity_a_propos"></activity>
         <activity android:name=".activity.Activity_names"></activity>
         <activity android:name=".activity.Activity_result"></activity>
-
+        <activity android:name=".activity.Activity_champions"></activity>
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

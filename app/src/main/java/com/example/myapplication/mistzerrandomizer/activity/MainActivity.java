@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Button start_button = findViewById(R.id.start_button);
+        final Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +67,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent Activity_a_propos_Intent= new Intent(getApplicationContext(), Activity_a_propos.class);
                 startActivity(Activity_a_propos_Intent);
+            }
+        });
+
+        Button option_button = findViewById(R.id.options_button);
+        option_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Activity_options = new Intent(getApplicationContext(), Activity_champions.class);
+                startActivity(Activity_options);
             }
         });
     }

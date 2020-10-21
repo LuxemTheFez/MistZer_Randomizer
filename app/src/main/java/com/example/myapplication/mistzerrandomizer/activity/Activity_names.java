@@ -9,7 +9,6 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
-import com.example.myapplication.mistzerrandomizer.model.List_summoners;
 
 import java.util.ArrayList;
 

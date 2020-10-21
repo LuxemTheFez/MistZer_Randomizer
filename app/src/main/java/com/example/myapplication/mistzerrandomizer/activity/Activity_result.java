@@ -1,6 +1,5 @@
 package com.example.myapplication.mistzerrandomizer.activity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,10 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
-import com.example.myapplication.mistzerrandomizer.model.List_summoners;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Activity_result extends AppCompatActivity {
