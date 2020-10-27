@@ -5,7 +5,7 @@
       "key": "266",
       "name": "Aatrox",
       "full": "Aatrox.png",
-      "estChoisi": true
+      "estChoisi": false
     },
     "Ahri": {
       "id": "Ahri",
@@ -19,7 +19,7 @@
       "key": "84",
       "name": "Akali",
       "full": "Akali.png",
-      "estChoisi": true
+      "estChoisi": false
     },
     "Alistar": {
       "id": "Alistar",

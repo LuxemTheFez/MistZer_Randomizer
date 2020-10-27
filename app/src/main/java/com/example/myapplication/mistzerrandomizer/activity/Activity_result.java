@@ -10,19 +10,54 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
+import com.example.myapplication.mistzerrandomizer.model.Champion;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 public class Activity_result extends AppCompatActivity {
 
     ArrayList<String> summoner_list;
+    private List<Champion> champions;
+    private Random random = new Random();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+        final List<Champion> champions = new ArrayList<>();
+        try {
+            JSONObject obj = new JSONObject(loadJSON());
+            JSONObject data = obj.getJSONObject("data");
+
+            for (Iterator<String> iter = data.keys(); iter.hasNext();){
+                String key = iter.next();
+                try {
+                    JSONObject champ_data = (JSONObject) data.get(key);
+                    if (champ_data.getBoolean("estChoisi")){
+                        champions.add(new Champion(champ_data.getString("id"), champ_data.getBoolean("estChoisi")));
+                    }
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+
+            }
+
+
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        System.out.println(champions);
         summoner_list = (ArrayList<String>) getIntent().getSerializableExtra(Activity_names.EXTRA_LIST_SUMMONER);
 
         Collections.shuffle(summoner_list);
@@ -42,96 +77,132 @@ public class Activity_result extends AppCompatActivity {
         final int duration = Toast.LENGTH_SHORT;
 
         ImageView i1 = ((ImageView) findViewById(R.id.img_sum_1));
-        i1.setImageResource(R.drawable.masteryi);
+        final Champion c1 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c1);
+        i1.setImageResource(getResources().getIdentifier(c1.getName(), "drawable", getPackageName()));
         i1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(), c1.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c2 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c2);
         ImageView i2 = ((ImageView) findViewById(R.id.img_sum_2));
-        i2.setImageResource(R.drawable.masteryi);
+        i2.setImageResource(getResources().getIdentifier(c2.getName(), "drawable", getPackageName()));
         i2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(), c2.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c3 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c3);
         ImageView i3 = ((ImageView) findViewById(R.id.img_sum_3));
-        i3.setImageResource(R.drawable.masteryi);
+        i3.setImageResource(getResources().getIdentifier(c3.getName(), "drawable", getPackageName()));
         i3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c3.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c4 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c4);
         ImageView i4 = ((ImageView) findViewById(R.id.img_sum_4));
-        i4.setImageResource(R.drawable.masteryi);
+        i4.setImageResource(getResources().getIdentifier(c4.getName(), "drawable", getPackageName()));
         i4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c4.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c5 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c5);
         ImageView i5 = ((ImageView) findViewById(R.id.img_sum_5));
-        i5.setImageResource(R.drawable.masteryi);
+        i5.setImageResource(getResources().getIdentifier(c5.getName(), "drawable", getPackageName()));
         i5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c5.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c6 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c6);
         ImageView i6 = ((ImageView) findViewById(R.id.img_sum_6));
-        i6.setImageResource(R.drawable.masteryi);
+        i6.setImageResource(getResources().getIdentifier(c6.getName(), "drawable", getPackageName()));
         i6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c6.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c7 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c7);
         ImageView i7 = ((ImageView) findViewById(R.id.img_sum_7));
-        i7.setImageResource(R.drawable.masteryi);
+        i7.setImageResource(getResources().getIdentifier(c7.getName(), "drawable", getPackageName()));
         i7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c7.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c8 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c8);
         ImageView i8 = ((ImageView) findViewById(R.id.img_sum_8));
-        i8.setImageResource(R.drawable.masteryi);
+        i8.setImageResource(getResources().getIdentifier(c8.getName(), "drawable", getPackageName()));
         i8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c8.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c9 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c9);
         ImageView i9 = ((ImageView) findViewById(R.id.img_sum_9));
-        i9.setImageResource(R.drawable.masteryi);
+        i9.setImageResource(getResources().getIdentifier(c9.getName(), "drawable", getPackageName()));
         i9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c9.getName(), duration);
                 toast.show();
             }
         });
+        final Champion c10 = champions.get(random.nextInt(champions.size()));
+        champions.remove(c10);
         ImageView i10 = ((ImageView) findViewById(R.id.img_sum_10));
-        i10.setImageResource(R.drawable.masteryi);
+        i10.setImageResource(getResources().getIdentifier(c10.getName(), "drawable", getPackageName()));
         i10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Maitre yi", duration);
+                Toast toast = Toast.makeText(getApplicationContext(),  c10.getName(), duration);
                 toast.show();
             }
         });
 
+        System.out.println(champions);
 
+    }
+
+    private String loadJSON() {
+        String json = null;
+        try {
+            InputStream is = getResources().openRawResource(R.raw.champion_test);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        return json;
     }
 }

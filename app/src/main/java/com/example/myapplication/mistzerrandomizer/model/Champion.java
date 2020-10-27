@@ -15,4 +15,6 @@ public class Champion {
     public boolean isEst_choisi() {
         return est_choisi;
     }
+
+    public String toString() { return name+" "+est_choisi; }
 }
