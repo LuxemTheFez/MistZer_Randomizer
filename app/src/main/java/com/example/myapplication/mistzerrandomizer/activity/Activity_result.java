@@ -1,7 +1,9 @@
 package com.example.myapplication.mistzerrandomizer.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,31 @@ public class Activity_result extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
 
+
+        Button menu_button = findViewById(R.id.button_menu);
+        menu_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent Activity_names_Intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(Activity_names_Intent);
+            }
+        });
+
+        Button restart_button = findViewById(R.id.button_restart);
+        restart_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                resultat();
+            }
+        });
+
+        resultat();
+
+    }
+
+    private void resultat() {
         final List<Champion> champions = new ArrayList<>();
         try {
             JSONObject obj = new JSONObject(loadJSON());
@@ -188,9 +215,7 @@ public class Activity_result extends AppCompatActivity {
         });
 
         System.out.println(champions);
-
     }
-
     private String loadJSON() {
         String json = null;
         try {
