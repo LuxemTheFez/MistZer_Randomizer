@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MistZer Randomizer</string>
     <string name="names_text">Entrer les 10 noms</string>
-    <string name="names_1">Invocateur 1</string>
+    <string name="names_1">Invocateur</string>
     <string name="names_2">Invocateur 2</string>
     <string name="names_3">Invocateur 3</string>
     <string name="names_4">Invocateur 4</string>
