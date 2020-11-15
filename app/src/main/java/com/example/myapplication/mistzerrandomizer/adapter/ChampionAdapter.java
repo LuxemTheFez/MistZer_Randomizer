@@ -1,8 +1,13 @@
 package com.example.myapplication.mistzerrandomizer.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +20,6 @@ import com.example.myapplication.mistzerrandomizer.R;
 import com.example.myapplication.mistzerrandomizer.model.Champion;
 import com.example.myapplication.mistzerrandomizer.storage.ChampionJsonFileStorage;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 
@@ -46,10 +49,6 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
         champions = ChampionJsonFileStorage.get(context.getApplicationContext()).findAll();
     }
 
-    public void setChamp(ChampionAdapter.ChampionHolder holder, int position, boolean estChoisi){
-        setLocked(holder.img);
-    }
-
 
     @NonNull
     @Override
@@ -69,12 +68,14 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
     @Override
     public void onBindViewHolder(@NonNull ChampionAdapter.ChampionHolder holder, int position) {
         Champion champion = champions.get(position);
-        holder.img.setImageResource(context.getResources().getIdentifier(champion.getImg(), "drawable", context.getPackageName()));
-        holder.itemView.setTag(champion.getImg());
+        Drawable d = context.getDrawable(context.getResources().getIdentifier(champion.getImg(), "drawable", context.getPackageName()));
+        Bitmap b = ((BitmapDrawable) d).getBitmap();
         if (!champion.isEst_choisi()){
             System.out.println(champion);
-            setLocked(holder.img);
-        }
+            b=setLocked(b);
+       }
+        holder.img.setImageBitmap(b);
+        holder.itemView.setTag(champion.getImg());
 
     }
 
@@ -85,13 +86,22 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
 
     public abstract void onItemClick(View v);
 
-    public static void  setLocked(ImageView v)
+    public static Bitmap setLocked(Bitmap b)
     {
-        ColorMatrix matrix = new ColorMatrix();
-        matrix.setSaturation(0);  //0 means grayscale
-        ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
-        v.setColorFilter(cf);
-        v.setImageAlpha(128);   // 128 = 0.5
+        int w,h;
+        w=b.getWidth();
+        h=b.getHeight();
+        Bitmap bm = Bitmap.createBitmap(w*3, h*3,Bitmap.Config.RGB_565);
+        Canvas c = new Canvas(bm);
+        Paint paint = new Paint();
+        ColorMatrix cm = new ColorMatrix();
+        cm.setSaturation(0);
+        ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
+        paint.setColorFilter(f);
+        System.out.println(w);
+        System.out.println(h);
+        c.drawBitmap(b, 0, 0, paint);
+        return bm;
     }
 
 }
