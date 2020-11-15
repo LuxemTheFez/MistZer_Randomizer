@@ -63,8 +63,8 @@ public class Activity_result extends AppCompatActivity {
 
     private void resultat() {
         List<Champion> champions = ChampionJsonFileStorage.get(getApplicationContext()).findAll();
-        System.out.println(champions);
 
+        //On enlève les champions non-choisis
         int i = 0;
         while (i<champions.size()){
             if (!champions.get(i).isEst_choisi()){
@@ -74,28 +74,6 @@ public class Activity_result extends AppCompatActivity {
             }
         }
 
-        /*try {
-            JSONObject obj = new JSONObject(loadJSON());
-            JSONObject data = obj.getJSONObject("data");
-
-            for (Iterator<String> iter = data.keys(); iter.hasNext();){
-                String key = iter.next();
-                try {
-                    JSONObject champ_data = (JSONObject) data.get(key);
-                    if (champ_data.getBoolean("estChoisi")){
-                        champions.add(new Champion(champ_data.getString("name"), champ_data.getString("image"), champ_data.getBoolean("estChoisi")));
-                    }
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-
-            }
-
-
-
-        }catch (JSONException e){
-            e.printStackTrace();
-        }*/
         System.out.println(champions);
         summoner_list = (ArrayList<String>) getIntent().getSerializableExtra(Activity_names.EXTRA_LIST_SUMMONER);
 

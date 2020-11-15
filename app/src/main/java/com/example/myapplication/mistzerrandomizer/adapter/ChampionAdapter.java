@@ -42,7 +42,6 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
     public ChampionAdapter(Context context) {
         this.context = context;
         champions = ChampionJsonFileStorage.get(context.getApplicationContext()).findAll();
-        System.out.println(champions);
     }
 
     public void setChampions(){
@@ -94,23 +93,4 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
     }
 
     public abstract void onItemClick(View v);
-
-    public static Bitmap setLocked(Bitmap b)
-    {
-        int w,h;
-        w=b.getWidth();
-        h=b.getHeight();
-        Bitmap bm = Bitmap.createBitmap(w*4, h*4,Bitmap.Config.RGB_565);
-        Canvas c = new Canvas(bm);
-        Paint paint = new Paint();
-        ColorMatrix cm = new ColorMatrix();
-        cm.setSaturation(0);
-        ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
-        paint.setColorFilter(f);
-        System.out.println(w);
-        System.out.println(h);
-        c.drawBitmap(b, 0, 0, paint);
-        return bm;
-    }
-
 }
