@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Storage<T> {
 
-    void insert(T object);
+    void insert(T object, String name);
 
     List<T> findAll();
 

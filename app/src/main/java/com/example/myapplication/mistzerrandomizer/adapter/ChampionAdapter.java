@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.mistzerrandomizer.R;
 import com.example.myapplication.mistzerrandomizer.model.Champion;
+import com.example.myapplication.mistzerrandomizer.storage.ChampionJsonFileStorage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,7 +44,11 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
 
     public ChampionAdapter(Context context) {
         this.context = context;
-        champions = new ArrayList<>();
+        champions = ChampionJsonFileStorage.get(context.getApplicationContext()).findAll();
+        System.out.println(champions);
+
+        /*champions = new ArrayList<>();
+
         try {
             JSONObject obj = new JSONObject(loadJSON());
             JSONObject data = obj.getJSONObject("data");
@@ -52,7 +57,7 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
                 String key = iter.next();
                 try {
                     JSONObject champ_data = (JSONObject) data.get(key);
-                    champions.add(new Champion(champ_data.getString("id"), champ_data.getBoolean("estChoisi")));
+                    champions.add(new Champion(champ_data.getString("name"), champ_data.getString("id"),champ_data.getBoolean("estChoisi")));
 
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -61,7 +66,7 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
             }
         }catch (JSONException e){
             e.printStackTrace();
-        }
+        }*/
     }
 
 
@@ -82,10 +87,8 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
 
     @Override
     public void onBindViewHolder(@NonNull ChampionAdapter.ChampionHolder holder, int position) {
-        System.out.println(champions);
-
         Champion champion = champions.get(position);
-        holder.img.setImageResource(context.getResources().getIdentifier(champion.getName(), "drawable", context.getPackageName()));
+        holder.img.setImageResource(context.getResources().getIdentifier(champion.getImg(), "drawable", context.getPackageName()));
         holder.itemView.setTag(champion.getName());
         if (!champion.isEst_choisi()){
             setLocked(holder.img);

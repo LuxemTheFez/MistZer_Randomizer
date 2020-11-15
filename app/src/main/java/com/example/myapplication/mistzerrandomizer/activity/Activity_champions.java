@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.mistzerrandomizer.R;
 import com.example.myapplication.mistzerrandomizer.adapter.ChampionAdapter;
+import com.example.myapplication.mistzerrandomizer.dialog.Updatable;
 import com.example.myapplication.mistzerrandomizer.model.Champion;
+import com.example.myapplication.mistzerrandomizer.storage.ChampionJsonFileStorage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Activity_champions extends AppCompatActivity {
+public class Activity_champions extends AppCompatActivity implements Updatable {
 
     private RecyclerView list;
     private List<Champion> champions;
@@ -34,14 +36,19 @@ public class Activity_champions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_champions);
 
-        final List<Champion> champions = new ArrayList<>();
+        champions = ChampionJsonFileStorage.get(getApplicationContext()).findAll();;
 
         list = (RecyclerView) findViewById(R.id.list_champions);
         list.setLayoutManager(new GridLayoutManager(this, 3));
         list.setAdapter(new ChampionAdapter(getApplicationContext()) {
             @Override
             public void onItemClick(View v) {
-
+                Champion champion = champions.get(list.getChildViewHolder(v).getAdapterPosition());
+                System.out.println("clic champ : " + champion);
+                champion.toggle_Est_choisi();
+                System.out.println("clic champ : " + champion);
+                ChampionJsonFileStorage.get(getApplicationContext()).insert(champion, champion.getImg());
+                list.getAdapter().notifyDataSetChanged();
             }
         });
     }
@@ -58,5 +65,11 @@ public class Activity_champions extends AppCompatActivity {
             e.printStackTrace();
         }
         return json;
+    }
+
+    @Override
+    public void update() {
+        list.getAdapter().notifyDataSetChanged();
+        onResume();
     }
 }

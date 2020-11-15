@@ -8,6 +8,9 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
+import com.example.myapplication.mistzerrandomizer.model.Champion;
+import com.example.myapplication.mistzerrandomizer.storage.ChampionJsonFileStorage;
+import com.example.myapplication.mistzerrandomizer.storage.utility.JsonFileStorage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,15 +19,19 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> champion = new ArrayList<>();
+    private List<Champion> champions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        champions = ChampionJsonFileStorage.get(getApplicationContext()).findAll();
+        System.out.println("champions : " + champions);
 
         creationJson();
 
@@ -32,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
         start_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //System.out.println("hehehehe");
-
                 Intent Activity_names_Intent = new Intent(getApplicationContext(), Activity_names.class);
                 startActivity(Activity_names_Intent);
             }
@@ -83,7 +88,9 @@ public class MainActivity extends AppCompatActivity {
                 String key = iter.next();
                 try {
                     JSONObject champ_data = (JSONObject) data.get(key);
-                    System.out.println("Champ data : " + champ_data);
+                    //System.out.println("Champ data : " + champ_data);
+                    Champion champion = new Champion(champ_data.getString("name"), champ_data.getString("id"),champ_data.getBoolean("estChoisi"));
+                    ChampionJsonFileStorage.get(getApplicationContext()).insert(champion, champion.getImg());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

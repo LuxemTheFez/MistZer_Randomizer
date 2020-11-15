@@ -1,6 +1,8 @@
 package com.example.myapplication.mistzerrandomizer.model;
 
-public class Champion {
+import java.io.Serializable;
+
+public class Champion implements Serializable {
     protected String name;
     protected boolean est_choisi;
     protected String img;
@@ -17,6 +19,13 @@ public class Champion {
     public String getImg() { return img; }
     public boolean isEst_choisi() {
         return est_choisi;
+    }
+    public void toggle_Est_choisi(){
+        if (est_choisi == true){
+            est_choisi = false;
+        } else {
+            est_choisi = true;
+        }
     }
 
     public String toString() { return name+" "+est_choisi; }

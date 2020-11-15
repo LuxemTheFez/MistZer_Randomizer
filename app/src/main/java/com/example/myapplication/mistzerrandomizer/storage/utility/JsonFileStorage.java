@@ -49,9 +49,9 @@ abstract public class JsonFileStorage<T> extends FileStorage<T> {
     }
 
     @Override
-    public void insert(T object) {
+    public void insert(T object, String name) {
         try {
-            json.getJSONObject(DATA).put("", objectToJsonObject(object));
+            json.getJSONObject(DATA).put(name, objectToJsonObject(object));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -98,16 +98,6 @@ abstract public class JsonFileStorage<T> extends FileStorage<T> {
     public void update(int id, T object) {
         try {
             json.getJSONObject(DATA).put("" + id, objectToJsonObject(object));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        write();
-    }
-
-    @Override
-    public void delete(int id) {
-        try {
-            json.getJSONObject(DATA).remove("" + id);
         } catch (JSONException e) {
             e.printStackTrace();
         }
