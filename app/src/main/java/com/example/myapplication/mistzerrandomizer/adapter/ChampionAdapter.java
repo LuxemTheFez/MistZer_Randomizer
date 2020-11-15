@@ -69,12 +69,21 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
     public void onBindViewHolder(@NonNull ChampionAdapter.ChampionHolder holder, int position) {
         Champion champion = champions.get(position);
         Drawable d = context.getDrawable(context.getResources().getIdentifier(champion.getImg(), "drawable", context.getPackageName()));
-        Bitmap b = ((BitmapDrawable) d).getBitmap();
+
         if (!champion.isEst_choisi()){
-            System.out.println(champion);
-            b=setLocked(b);
-       }
-        holder.img.setImageBitmap(b);
+            ColorMatrix matrix = new ColorMatrix();
+            matrix.setSaturation(0);
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
+
+            d.setColorFilter(filter);
+       } else {
+            ColorMatrix matrix = new ColorMatrix();
+            matrix.setSaturation(1);
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
+
+            d.setColorFilter(filter);
+        }
+        holder.img.setImageDrawable(d);
         holder.itemView.setTag(champion.getImg());
 
     }
@@ -91,7 +100,7 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
         int w,h;
         w=b.getWidth();
         h=b.getHeight();
-        Bitmap bm = Bitmap.createBitmap(w*3, h*3,Bitmap.Config.RGB_565);
+        Bitmap bm = Bitmap.createBitmap(w*4, h*4,Bitmap.Config.RGB_565);
         Canvas c = new Canvas(bm);
         Paint paint = new Paint();
         ColorMatrix cm = new ColorMatrix();
