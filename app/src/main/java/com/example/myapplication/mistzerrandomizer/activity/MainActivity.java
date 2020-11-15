@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         champions = ChampionJsonFileStorage.get(getApplicationContext()).findAll();
-        System.out.println("champions : " + champions);
 
         creationJson();
 
