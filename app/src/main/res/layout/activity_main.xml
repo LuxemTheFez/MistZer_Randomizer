@@ -7,12 +7,6 @@
     android:orientation="vertical"
     tools:context=".activity.MainActivity" >
 
-    <TextView
-        android:id="@+id/home_title"
-        android:layout_width="match_parent"
-        android:layout_height="139dp"
-        android:text="@string/home_title" />
-
     <Space
         android:layout_width="match_parent"
         android:layout_height="129dp" />
@@ -21,7 +15,8 @@
         android:id="@+id/start_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_button" />
+        android:text="@string/start_button"
+        android:background="@drawable/rounded_button" />
 
     <Space
         android:layout_width="match_parent"

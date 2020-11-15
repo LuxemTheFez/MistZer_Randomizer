@@ -75,7 +75,8 @@
             android:id="@+id/button_names"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
+            android:layout_weight="0.1"
+            android:background="@drawable/rounded_button"
             android:text="@string/names_button" />
 
     </LinearLayout>

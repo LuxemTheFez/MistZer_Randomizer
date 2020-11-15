@@ -301,6 +301,11 @@
         android:layout_weight="0.25"
         android:orientation="horizontal">
 
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
         <Button
             android:id="@+id/button_menu"
             android:layout_width="wrap_content"
@@ -308,7 +313,13 @@
             android:layout_gravity="center_horizontal|center_vertical"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
-            android:text="@string/menu" />
+            android:text="@string/menu"
+            android:background="@drawable/rounded_button" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/button_restart"
@@ -316,7 +327,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:layout_weight="0.75"
-            android:text="@string/restart" />
+            android:text="@string/restart"
+            android:background="@drawable/rounded_button" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </LinearLayout>
 
 </LinearLayout>
