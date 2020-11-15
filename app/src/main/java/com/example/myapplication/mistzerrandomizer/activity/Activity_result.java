@@ -71,7 +71,7 @@ public class Activity_result extends AppCompatActivity {
                 try {
                     JSONObject champ_data = (JSONObject) data.get(key);
                     if (champ_data.getBoolean("estChoisi")){
-                        champions.add(new Champion(champ_data.getString("id"), champ_data.getBoolean("estChoisi")));
+                        champions.add(new Champion(champ_data.getString("name"), champ_data.getString("image"), champ_data.getBoolean("estChoisi")));
                     }
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -106,7 +106,7 @@ public class Activity_result extends AppCompatActivity {
         ImageView i1 = ((ImageView) findViewById(R.id.img_sum_1));
         final Champion c1 = champions.get(random.nextInt(champions.size()));
         champions.remove(c1);
-        i1.setImageResource(getResources().getIdentifier(c1.getName(), "drawable", getPackageName()));
+        i1.setImageResource(getResources().getIdentifier(c1.getImg(), "drawable", getPackageName()));
         i1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,7 +117,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c2 = champions.get(random.nextInt(champions.size()));
         champions.remove(c2);
         ImageView i2 = ((ImageView) findViewById(R.id.img_sum_2));
-        i2.setImageResource(getResources().getIdentifier(c2.getName(), "drawable", getPackageName()));
+        i2.setImageResource(getResources().getIdentifier(c2.getImg(), "drawable", getPackageName()));
         i2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,7 +128,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c3 = champions.get(random.nextInt(champions.size()));
         champions.remove(c3);
         ImageView i3 = ((ImageView) findViewById(R.id.img_sum_3));
-        i3.setImageResource(getResources().getIdentifier(c3.getName(), "drawable", getPackageName()));
+        i3.setImageResource(getResources().getIdentifier(c3.getImg(), "drawable", getPackageName()));
         i3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,7 +139,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c4 = champions.get(random.nextInt(champions.size()));
         champions.remove(c4);
         ImageView i4 = ((ImageView) findViewById(R.id.img_sum_4));
-        i4.setImageResource(getResources().getIdentifier(c4.getName(), "drawable", getPackageName()));
+        i4.setImageResource(getResources().getIdentifier(c4.getImg(), "drawable", getPackageName()));
         i4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,7 +150,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c5 = champions.get(random.nextInt(champions.size()));
         champions.remove(c5);
         ImageView i5 = ((ImageView) findViewById(R.id.img_sum_5));
-        i5.setImageResource(getResources().getIdentifier(c5.getName(), "drawable", getPackageName()));
+        i5.setImageResource(getResources().getIdentifier(c5.getImg(), "drawable", getPackageName()));
         i5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +161,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c6 = champions.get(random.nextInt(champions.size()));
         champions.remove(c6);
         ImageView i6 = ((ImageView) findViewById(R.id.img_sum_6));
-        i6.setImageResource(getResources().getIdentifier(c6.getName(), "drawable", getPackageName()));
+        i6.setImageResource(getResources().getIdentifier(c6.getImg(), "drawable", getPackageName()));
         i6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +172,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c7 = champions.get(random.nextInt(champions.size()));
         champions.remove(c7);
         ImageView i7 = ((ImageView) findViewById(R.id.img_sum_7));
-        i7.setImageResource(getResources().getIdentifier(c7.getName(), "drawable", getPackageName()));
+        i7.setImageResource(getResources().getIdentifier(c7.getImg(), "drawable", getPackageName()));
         i7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,7 +183,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c8 = champions.get(random.nextInt(champions.size()));
         champions.remove(c8);
         ImageView i8 = ((ImageView) findViewById(R.id.img_sum_8));
-        i8.setImageResource(getResources().getIdentifier(c8.getName(), "drawable", getPackageName()));
+        i8.setImageResource(getResources().getIdentifier(c8.getImg(), "drawable", getPackageName()));
         i8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -194,7 +194,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c9 = champions.get(random.nextInt(champions.size()));
         champions.remove(c9);
         ImageView i9 = ((ImageView) findViewById(R.id.img_sum_9));
-        i9.setImageResource(getResources().getIdentifier(c9.getName(), "drawable", getPackageName()));
+        i9.setImageResource(getResources().getIdentifier(c9.getImg(), "drawable", getPackageName()));
         i9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,7 +205,7 @@ public class Activity_result extends AppCompatActivity {
         final Champion c10 = champions.get(random.nextInt(champions.size()));
         champions.remove(c10);
         ImageView i10 = ((ImageView) findViewById(R.id.img_sum_10));
-        i10.setImageResource(getResources().getIdentifier(c10.getName(), "drawable", getPackageName()));
+        i10.setImageResource(getResources().getIdentifier(c10.getImg(), "drawable", getPackageName()));
         i10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -213,7 +213,6 @@ public class Activity_result extends AppCompatActivity {
                 toast.show();
             }
         });
-
         System.out.println(champions);
     }
     private String loadJSON() {

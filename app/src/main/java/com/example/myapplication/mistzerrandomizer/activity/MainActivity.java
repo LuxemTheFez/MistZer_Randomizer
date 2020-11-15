@@ -9,15 +9,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> champion = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        creationJson();
 
         final Button start_button = findViewById(R.id.start_button);
         start_button.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         about_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Activity_a_propos_Intent= new Intent(getApplicationContext(), Activity_a_propos.class);
+                Intent Activity_a_propos_Intent = new Intent(getApplicationContext(), Activity_a_propos.class);
                 startActivity(Activity_a_propos_Intent);
             }
         });
@@ -49,5 +58,38 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private String loadJSON() {
+        String json = null;
+        try {
+            InputStream is = getResources().openRawResource(R.raw.champion_test);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
 
+    private void creationJson() {
+        try {
+            JSONObject obj = new JSONObject(loadJSON());
+            JSONObject data = obj.getJSONObject("data");
+            System.out.println("Data : " + data);
+
+            for (Iterator<String> iter = data.keys(); iter.hasNext(); ) {
+                String key = iter.next();
+                try {
+                    JSONObject champ_data = (JSONObject) data.get(key);
+                    System.out.println("Champ data : " + champ_data);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 }

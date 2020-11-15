@@ -47,6 +47,22 @@ public class Activity_names extends AppCompatActivity {
         nom.setText("Invocateur " + (summoner_list.size()+1));
         edit_1.setHint("Invocateur " + (summoner_list.size()+1));
 
+        final Button button_continue = findViewById(R.id.button_names);
+        button_continue.setEnabled(false);
+        button_continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+
+                Intent Activity_result_intent = new Intent(getApplicationContext(), Activity_result.class);
+                Activity_result_intent.putExtra(EXTRA_LIST_SUMMONER, summoner_list);
+                startActivity(Activity_result_intent);
+            }
+
+        });
+
         final Button button_nom = findViewById(R.id.button_nom);
         button_nom.setText("Suivant");
         button_nom.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +83,7 @@ public class Activity_names extends AppCompatActivity {
                         edit_1.setVisibility(View.GONE);
                         button_nom.setVisibility(View.GONE);
                         nom.setText("Cliquer sur continuer pour continuer");
+                        button_continue.setEnabled(true);
                     }
                 }else{
                     Toast toast = Toast.makeText(getApplicationContext(), "Pseudo non valide", Toast.LENGTH_SHORT);
@@ -77,20 +94,7 @@ public class Activity_names extends AppCompatActivity {
 
 
 
-        Button button_continue = findViewById(R.id.button_names);
-        button_continue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-
-
-
-                    Intent Activity_result_intent = new Intent(getApplicationContext(), Activity_result.class);
-                    Activity_result_intent.putExtra(EXTRA_LIST_SUMMONER, summoner_list);
-                    startActivity(Activity_result_intent);
-                }
-
-        });
 
     }
 
