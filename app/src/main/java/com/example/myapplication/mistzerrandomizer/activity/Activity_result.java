@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication.mistzerrandomizer.R;
 import com.example.myapplication.mistzerrandomizer.model.Champion;
+import com.example.myapplication.mistzerrandomizer.storage.ChampionJsonFileStorage;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -61,8 +62,19 @@ public class Activity_result extends AppCompatActivity {
     }
 
     private void resultat() {
-        final List<Champion> champions = new ArrayList<>();
-        try {
+        List<Champion> champions = ChampionJsonFileStorage.get(getApplicationContext()).findAll();
+        System.out.println(champions);
+
+        int i = 0;
+        while (i<champions.size()){
+            if (!champions.get(i).isEst_choisi()){
+                champions.remove(i);
+            } else {
+                i++;
+            }
+        }
+
+        /*try {
             JSONObject obj = new JSONObject(loadJSON());
             JSONObject data = obj.getJSONObject("data");
 
@@ -83,7 +95,7 @@ public class Activity_result extends AppCompatActivity {
 
         }catch (JSONException e){
             e.printStackTrace();
-        }
+        }*/
         System.out.println(champions);
         summoner_list = (ArrayList<String>) getIntent().getSerializableExtra(Activity_names.EXTRA_LIST_SUMMONER);
 

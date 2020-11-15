@@ -39,16 +39,19 @@ public class Activity_champions extends AppCompatActivity implements Updatable {
         champions = ChampionJsonFileStorage.get(getApplicationContext()).findAll();;
 
         list = (RecyclerView) findViewById(R.id.list_champions);
+        //list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         list.setLayoutManager(new GridLayoutManager(this, 3));
         list.setAdapter(new ChampionAdapter(getApplicationContext()) {
             @Override
             public void onItemClick(View v) {
+                System.out.println(champions);
                 Champion champion = champions.get(list.getChildViewHolder(v).getAdapterPosition());
-                System.out.println("clic champ : " + champion);
+                System.out.println(champion);
                 champion.toggle_Est_choisi();
-                System.out.println("clic champ : " + champion);
-                ChampionJsonFileStorage.get(getApplicationContext()).insert(champion, champion.getImg());
+                ChampionJsonFileStorage.get(getApplicationContext()).insert(champion, (String) v.getTag());
+                ((ChampionAdapter) list.getAdapter()).setChampions();
                 list.getAdapter().notifyDataSetChanged();
+                System.out.println(champions);
             }
         });
     }
@@ -66,6 +69,12 @@ public class Activity_champions extends AppCompatActivity implements Updatable {
         }
         return json;
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 
     @Override
     public void update() {

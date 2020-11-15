@@ -15,7 +15,7 @@
     <string name="home_title">Bienvenue sur […]</string>
     <string name="start_button">Commencer</string>
     <string name="about_button">À propos</string>
-    <string name="options_button">Options</string>
+    <string name="options_button">Liste des champions</string>
     <string name="a_propos_title">A propos</string>
     <string name="a_propos_content">Cette application a pour but de s\'amuser en peu sur League of Legends. En cliquant sur le bouton commencer, vous pouvez entrez 10 joueurs, et l\'application vous choisit aléatoirement un rôle ainsi qu\'un personnage.
     </string>

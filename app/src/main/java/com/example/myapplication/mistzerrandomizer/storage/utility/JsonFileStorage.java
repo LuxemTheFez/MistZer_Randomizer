@@ -73,7 +73,7 @@ abstract public class JsonFileStorage<T> extends FileStorage<T> {
     }
 
     @Override
-    public T find(int id) {
+    public T find(String id) {
         T object = null;
         try {
             object = jsonObjectToObject(json.getJSONObject(DATA).getJSONObject("" + id));

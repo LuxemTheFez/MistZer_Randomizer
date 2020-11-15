@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,13 +15,8 @@ import com.example.myapplication.mistzerrandomizer.R;
 import com.example.myapplication.mistzerrandomizer.model.Champion;
 import com.example.myapplication.mistzerrandomizer.storage.ChampionJsonFileStorage;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -46,27 +40,14 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
         this.context = context;
         champions = ChampionJsonFileStorage.get(context.getApplicationContext()).findAll();
         System.out.println(champions);
+    }
 
-        /*champions = new ArrayList<>();
+    public void setChampions(){
+        champions = ChampionJsonFileStorage.get(context.getApplicationContext()).findAll();
+    }
 
-        try {
-            JSONObject obj = new JSONObject(loadJSON());
-            JSONObject data = obj.getJSONObject("data");
-
-            for (Iterator<String> iter = data.keys(); iter.hasNext();){
-                String key = iter.next();
-                try {
-                    JSONObject champ_data = (JSONObject) data.get(key);
-                    champions.add(new Champion(champ_data.getString("name"), champ_data.getString("id"),champ_data.getBoolean("estChoisi")));
-
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-
-            }
-        }catch (JSONException e){
-            e.printStackTrace();
-        }*/
+    public void setChamp(ChampionAdapter.ChampionHolder holder, int position, boolean estChoisi){
+        setLocked(holder.img);
     }
 
 
@@ -89,8 +70,9 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
     public void onBindViewHolder(@NonNull ChampionAdapter.ChampionHolder holder, int position) {
         Champion champion = champions.get(position);
         holder.img.setImageResource(context.getResources().getIdentifier(champion.getImg(), "drawable", context.getPackageName()));
-        holder.itemView.setTag(champion.getName());
+        holder.itemView.setTag(champion.getImg());
         if (!champion.isEst_choisi()){
+            System.out.println(champion);
             setLocked(holder.img);
         }
 
@@ -103,21 +85,6 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
 
     public abstract void onItemClick(View v);
 
-    private String loadJSON() {
-        String json = null;
-        try {
-            InputStream is = context.getResources().openRawResource(R.raw.champion_test);
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        return json;
-    }
-
     public static void  setLocked(ImageView v)
     {
         ColorMatrix matrix = new ColorMatrix();
@@ -126,4 +93,5 @@ public abstract class ChampionAdapter extends RecyclerView.Adapter<ChampionAdapt
         v.setColorFilter(cf);
         v.setImageAlpha(128);   // 128 = 0.5
     }
+
 }

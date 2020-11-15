@@ -8,7 +8,7 @@ public interface Storage<T> {
 
     List<T> findAll();
 
-    T find(int id);
+    T find(String id);
 
     int size();
 
